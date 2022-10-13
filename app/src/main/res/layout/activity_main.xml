@@ -4,15 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/deep_purple"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/Berlin_sans_fb_demi_bold"
+        android:text=" Vamos \nRachar!"
+        android:textColor="@color/white"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="30dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/Berlin_sans_fb_demi_bold"
+        android:text="R$"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+    <ImageView
+        android:id="@+id/iconGroup"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/group_icon" />
+
+    <TextView
+        android:id="@+id/valorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="R$ 0,00"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputNumRachadores" />
+
+    <EditText
+        android:id="@+id/inputValor"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0,00"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+    <EditText
+        android:id="@+id/inputNumRachadores"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/iconGroup"
+        app:layout_constraintTop_toBottomOf="@+id/inputValor" />
+
+    <ImageView
+        android:id="@+id/shareIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/circle_div"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valorTxt"
+        app:srcCompat="@drawable/share_icon" />
+
+    <ImageView
+        android:id="@+id/volumeIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/circle_div"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shareIcon"
+        app:layout_constraintTop_toBottomOf="@+id/valorTxt"
+        app:srcCompat="@drawable/volume_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
