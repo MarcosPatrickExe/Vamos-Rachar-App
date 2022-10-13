@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 
@@ -29,7 +30,7 @@ class TelaPrincipal : AppCompatActivity() {
 
                 campoValorTotal.addTextChangedListener {
 
-                        Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
+                          Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -38,11 +39,18 @@ class TelaPrincipal : AppCompatActivity() {
 
                 campoNrachadores.addTextChangedListener {
 
-                         if( campoValorTotal.text.equals("0,00") || campoValorTotal.text.equals("") ) {
+                         if( campoValorTotal.text.toString().equals("0,00") || campoValorTotal.text.toString().equals("") ) {
+
                                  Toast.makeText(this,"Por favor, digite o valor total!!", Toast.LENGTH_SHORT).show();
-                         }else {
-                                 var valorDividido = campoValorTotal.text.toString().toDouble()  / campoNrachadores.text.toString().toInt() ;
-                                 Toast.makeText( this,"O valor total é: ${valorDividido}",  Toast.LENGTH_SHORT).show();
+
+                         }else if(  campoValorTotal.text.toString().toDouble() > 0 ){
+
+                                 var valorDividido = campoValorTotal.text.toString().toDouble()  / campoNrachadores.text.toString().toDouble() ;
+                                 Toast.makeText( this,"O valor que fica para cada um é: ${valorDividido}",  Toast.LENGTH_SHORT).show();
+
+                                 super
+                                        .findViewById<TextView>(R.id.valorTxt)
+                                                 .text = "R$ "+campoValorTotal.text.toString();
                          }
                 }
 
