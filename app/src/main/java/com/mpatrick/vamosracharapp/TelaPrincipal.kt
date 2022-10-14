@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import org.w3c.dom.Text
 
 // mascarando campos:
 // https://www.youtube.com/watch?v=4bbF4I_ZaG4&t=256s
@@ -20,48 +21,39 @@ class TelaPrincipal : AppCompatActivity() {
                     super.onCreate(savedInstanceState);
                     setContentView(R.layout.activity_main);
 
-            /*
-                   val  btnVolume: Button = super.findViewById(R.id.volumeIcon);
-                   val btnShare: Button = super.findViewById(R.id.shareIcon);
+                    super.getSupportActionBar()?.hide();
 
-                    btnVolume.setOnClickListener(){
+                    val  inputValorConta :EditText = super.findViewById(R.id.inputValor);
+                    val  inputNumRachadores :EditText = super.findViewById(R.id.inputNumRachadores);
+
+                    inputValorConta.addTextChangedListener {
+                              //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
+                            this.validar(inputValorConta, inputNumRachadores);
                     }
-             */
 
-                val  campoValorTotal :EditText = super.findViewById(R.id.inputValor);
-
-                campoValorTotal.addTextChangedListener {
-
-                          Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
-                }
+                    inputNumRachadores.addTextChangedListener {
+                            this.validar(inputValorConta, inputNumRachadores);
+                    }
+            }
 
 
+            fun validar(  valorConta: TextView, nRachadores: TextView){
 
-                val  campoNrachadores :EditText = super.findViewById(R.id.inputNumRachadores);
+                        if( valorConta.text.toString().equals("0.00") || valorConta.text.toString().equals("") || nRachadores.text.toString().equals("0") || nRachadores.text.toString().equals("") ) {
 
-                campoNrachadores.addTextChangedListener {
+                                        Toast.makeText(this,"Nenhum campo pode ficar vazio ou ter valor zero!!", Toast.LENGTH_SHORT).show();
+                                        super .findViewById<TextView>(R.id.valorTxt) .text = "R$ 0.00";
 
-                         if( campoValorTotal.text.toString().equals("0,00") || campoValorTotal.text.toString().equals("") ) {
+                        }else if(  valorConta.text.toString().toDouble() > 0 &&  nRachadores.text.toString().toDouble() > 0  ){
 
-                                 Toast.makeText(this,"Por favor, digite o valor total!!", Toast.LENGTH_SHORT).show();
+                                        var valorDividido :Double=   valorConta.text.toString().toDouble()  / nRachadores.text.toString().toDouble() ;
+                                       // Toast.makeText( this,"O valor que fica para cada um é: ${String.format("%.2f", valorDividido)}",  Toast.LENGTH_SHORT).show();
+                                        super .findViewById<TextView>(R.id.valorTxt) .text = ("R$ "+String.format("%.2f", valorDividido) );
 
-                         }else if(  campoValorTotal.text.toString().toDouble() > 0 ){
-
-                                 var valorDividido = campoValorTotal.text.toString().toDouble()  / campoNrachadores.text.toString().toDouble() ;
-                                 Toast.makeText( this,"O valor que fica para cada um é: ${valorDividido}",  Toast.LENGTH_SHORT).show();
-
-                                 super
-                                        .findViewById<TextView>(R.id.valorTxt)
-                                                 .text = "R$ "+campoValorTotal.text.toString();
-                         }
-                }
-
-
-
-
-                /*
-                    .addTextChangedListener(  obj: TextWatcher {
-                });  */
+                        }else if(valorConta.text.toString().toDouble() == 0.00  || nRachadores.text.toString().toDouble() == 0.0){
+                                        Toast.makeText(this, "O valor da conta e o número de rachadores não podem ser zero!!", Toast.LENGTH_SHORT)
+                                       super .findViewById<TextView>(R.id.valorTxt) .text = "R$ 0.00";
+                        }
             }
 
 
