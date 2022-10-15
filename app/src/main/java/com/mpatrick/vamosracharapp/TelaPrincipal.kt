@@ -1,4 +1,5 @@
 package com.mpatrick.vamosracharapp
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -30,6 +31,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val  inputValorConta :EditText = super.findViewById(R.id.inputValor);
                     val  inputNumRachadores :EditText = super.findViewById(R.id.inputNumRachadores);
                     val volumeIcon  = super.findViewById(R.id.volumeIcon) as ImageView;
+                    val shareIcon  = super.findViewById(R.id.shareIcon) as ImageView;
 
 
                     inputValorConta.addTextChangedListener {
@@ -44,10 +46,20 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     // inicializando TTS
                     this.tts = TextToSpeech(this, this);
 
+                    // BOTÃO DE VOLUME (TTS):
                     volumeIcon.setOnClickListener{
                              this.falar(
                                     super .findViewById<TextView>(R.id.valorTxt).text .toString()
                              );
+                    }
+
+                    // BOTÃO DE COMPARTILHAMENTO:
+                    shareIcon.setOnClickListener {
+                                var shareIntent = Intent();
+                                shareIntent.setAction( Intent.ACTION_SEND );
+                                shareIntent.putExtra( Intent.EXTRA_TEXT,  super .findViewById<TextView>(R.id.valorTxt).text .toString());
+                                shareIntent.setType("text/plain");
+                                super.startActivity( shareIntent );
                     }
             }
 
@@ -57,11 +69,8 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onInit( status: Int){
-                    Log.d("out", "TTS inicializado!!");
-                   Log.d("out", "Status: ${status} // Error: ${TextToSpeech.ERROR} // Success: ${TextToSpeech.SUCCESS}}");
 
                     if( status !=  TextToSpeech.ERROR){
-                            Log.d("out", "linguagen definida com sucesso!!");
                             this.tts!!.language= Locale.ENGLISH;
                     }
             }
