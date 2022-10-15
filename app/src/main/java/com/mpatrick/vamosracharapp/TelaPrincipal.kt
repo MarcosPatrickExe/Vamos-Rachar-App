@@ -1,13 +1,14 @@
 package com.mpatrick.vamosracharapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextWatcher
-import android.widget.Button
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
-import org.w3c.dom.Text
+import java.util.*
 
 // mascarando campos:
 // https://www.youtube.com/watch?v=4bbF4I_ZaG4&t=256s
@@ -15,7 +16,10 @@ import org.w3c.dom.Text
 
 
 
-class TelaPrincipal : AppCompatActivity() {
+class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
+
+            private var tts :TextToSpeech? = null
+
 
             override fun onCreate(savedInstanceState: Bundle?) {
                     super.onCreate(savedInstanceState);
@@ -25,6 +29,8 @@ class TelaPrincipal : AppCompatActivity() {
 
                     val  inputValorConta :EditText = super.findViewById(R.id.inputValor);
                     val  inputNumRachadores :EditText = super.findViewById(R.id.inputNumRachadores);
+                    val volumeIcon  = super.findViewById(R.id.volumeIcon) as ImageView;
+
 
                     inputValorConta.addTextChangedListener {
                               //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
@@ -32,10 +38,33 @@ class TelaPrincipal : AppCompatActivity() {
                     }
 
                     inputNumRachadores.addTextChangedListener {
-                            this.validar(inputValorConta, inputNumRachadores);
+                            this.validar( inputValorConta, inputNumRachadores);
+                    }
+
+                    // inicializando TTS
+                    this.tts = TextToSpeech(this, this);
+
+                    volumeIcon.setOnClickListener{
+                             this.falar(
+                                    super .findViewById<TextView>(R.id.valorTxt).text .toString()
+                             );
                     }
             }
 
+            private fun falar( valor: String){
+                    Log.d("out", "Falando o texto recebido: ${valor}");
+                    this.tts!!.speak( valor, TextToSpeech.QUEUE_FLUSH, null, null )
+            }
+
+            override fun onInit( status: Int){
+                    Log.d("out", "TTS inicializado!!");
+                   Log.d("out", "Status: ${status} // Error: ${TextToSpeech.ERROR} // Success: ${TextToSpeech.SUCCESS}}");
+
+                    if( status !=  TextToSpeech.ERROR){
+                            Log.d("out", "linguagen definida com sucesso!!");
+                            this.tts!!.language= Locale.ENGLISH;
+                    }
+            }
 
             fun validar(  valorConta: TextView, nRachadores: TextView){
 
