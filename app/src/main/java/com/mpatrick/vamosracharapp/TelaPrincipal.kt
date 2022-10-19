@@ -22,7 +22,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
             private var tts :TextToSpeech? = null
 
 
-            override fun onCreate(savedInstanceState: Bundle?) {
+            override fun onCreate( savedInstanceState: Bundle?) {
                     super.onCreate(savedInstanceState);
                     setContentView(R.layout.activity_main);
 
@@ -35,12 +35,12 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
                     inputValorConta.addTextChangedListener {
-                              //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
-                            this.validar(inputValorConta, inputNumRachadores);
+                                  //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
+                                this.validar(inputValorConta, inputNumRachadores);
                     }
 
                     inputNumRachadores.addTextChangedListener {
-                            this.validar( inputValorConta, inputNumRachadores);
+                                this.validar( inputValorConta, inputNumRachadores);
                     }
 
                     // inicializando TTS
@@ -48,9 +48,9 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                     // BOTÃO DE VOLUME (TTS):
                     volumeIcon.setOnClickListener{
-                             this.falar(
-                                    super .findViewById<TextView>(R.id.valorTxt).text .toString()
-                             );
+                                 this.falar(
+                                        super .findViewById<TextView>(R.id.valorTxt).text .toString()
+                                 );
                     }
 
                     // BOTÃO DE COMPARTILHAMENTO:
@@ -63,17 +63,22 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
             }
 
+
             private fun falar( valor: String){
-                    Log.d("out", "Falando o texto recebido: ${valor}");
-                    this.tts!!.speak( valor, TextToSpeech.QUEUE_FLUSH, null, null )
+                                Log.d("out", "Falando o texto recebido: ${valor}");
+                                this.tts!!.speak( valor, TextToSpeech.QUEUE_FLUSH, null, null )
             }
 
+
+            // MÉTODO DA INTERFACE OnInitListener
             override fun onInit( status: Int){
 
-                    if( status !=  TextToSpeech.ERROR){
-                            this.tts!!.language= Locale.ENGLISH;
-                    }
+                                if( status !=  TextToSpeech.ERROR){
+                                        this.tts!!.language= Locale.ENGLISH;
+                                }
             }
+
+
 
             fun validar(  valorConta: TextView, nRachadores: TextView){
 
