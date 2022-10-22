@@ -19,12 +19,12 @@ import java.util.*
 
 class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-            private var tts :TextToSpeech? = null
+            private var tts :TextToSpeech? = null;
 
 
             override fun onCreate( savedInstanceState: Bundle?) {
                     super.onCreate(savedInstanceState);
-                    setContentView(R.layout.activity_main);
+                    super.setContentView(R.layout.activity_main);
 
                     super.getSupportActionBar()?.hide();
 

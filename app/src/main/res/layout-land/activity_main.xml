@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deep_purple"
+        tools:context=".TelaPrincipal">
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/berlin_sans_fb_demi"
+            android:text=" Vamos \nRachar!"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="30dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="45dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/berlin_sans_fb_demi"
+            android:text="R$"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <ImageView
+            android:id="@+id/iconGroup"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toEndOf="@+id/inputValor"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt"
+            app:srcCompat="@drawable/group_icon" />
+
+        <TextView
+            android:id="@+id/valorTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="200dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="R$ 0,00"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <EditText
+            android:id="@+id/inputValor"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:hint="0.00"
+            android:inputType="numberDecimal"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <EditText
+            android:id="@+id/inputNumRachadores"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:hint="0"
+            android:inputType="number"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toEndOf="@+id/iconGroup"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <ImageView
+            android:id="@+id/shareIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/circle_div"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputValor"
+            app:layout_constraintVertical_bias="0.56"
+            app:srcCompat="@drawable/share_icon" />
+
+        <ImageView
+            android:id="@+id/volumeIcon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/circle_div"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.798"
+            app:layout_constraintStart_toEndOf="@+id/shareIcon"
+            app:layout_constraintTop_toBottomOf="@+id/inputNumRachadores"
+            app:layout_constraintVertical_bias="0.581"
+            app:srcCompat="@drawable/volume_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
