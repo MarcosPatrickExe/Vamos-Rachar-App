@@ -44,7 +44,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     }
 
                     // inicializando TTS
-                    this.tts = TextToSpeech(this, this);
+                    this!!.tts = TextToSpeech(this, this);
 
                     // BOTÃO DE VOLUME (TTS):
                     volumeIcon.setOnClickListener{
