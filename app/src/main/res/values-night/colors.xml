@@ -12,8 +12,7 @@
             <color name="deep_purple"> #370d55 </color>
 
     <!-- FOR LIGHT THEME -->
-             <color name="first_color"> #FFFFFF </color>
-             <color name="second_color"> #370d55 </color>
-            <color name="third_color"> #370d55 </color>
+            <color name="first_color"> #370d55 </color>
+            <color name="second_color"> #FFFFFF</color>
 
 </resources>

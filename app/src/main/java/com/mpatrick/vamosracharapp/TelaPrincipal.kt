@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.addTextChangedListener
 import java.util.*
 
@@ -15,11 +17,16 @@ import java.util.*
 // https://www.youtube.com/watch?v=4bbF4I_ZaG4&t=256s
 
 
+enum class Theme{
+     DARK, LIGHT
+}
 
 
 class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             private var tts :TextToSpeech? = null;
+            private var currentTheme :Theme = Theme.DARK;
+
 
 
             override fun onCreate( savedInstanceState: Bundle?) {
@@ -32,7 +39,9 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val  inputNumRachadores :EditText = super.findViewById(R.id.inputNumRachadores);
                     val volumeIcon  = super.findViewById(R.id.volumeIcon) as ImageView;
                     val shareIcon  = super.findViewById(R.id.shareIcon) as ImageView;
+                    val btnToggleTheme = super.findViewById<ToggleButton>(R.id.toggleThemeBtn);
 
+                    AppCompatDelegate.MODE_NIGHT_YES;
 
                     inputValorConta.addTextChangedListener {
                                   //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
@@ -61,6 +70,14 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                                 shareIntent.setType("text/plain");
                                 super.startActivity( shareIntent );
                     }
+
+
+                    btnToggleTheme.setOnClickListener{
+                                  var currentTheme :Theme =  if( btnToggleTheme.isChecked )  Theme.DARK else  Theme.LIGHT// OPERADOR TERNÁRIO DO KOTLIN
+
+                                  Toast.makeText(this, "testando tema atual: $currentTheme",  Toast.LENGTH_LONG).show();
+                                  this.changeTheme(  currentTheme );
+                    }
             }
 
 
@@ -77,6 +94,33 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                                         this.tts!!.language= Locale.ENGLISH;
                                 }
             }
+
+
+
+           fun changeTheme(  theme :Theme ){
+                   var groupIconView  = super.findViewById<ImageView>(R.id.iconGroup);
+                   var colorShareBtn = super.findViewById<ImageView>(R.id.shareIcon);
+                   var colorVolumeBtn = super.findViewById<ImageView>(R.id.volumeIcon);
+
+
+                   if(  theme == Theme.LIGHT) {
+                               this.currentTheme = Theme.LIGHT;
+                                AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_NO )
+
+                               groupIconView.setImageResource( R.drawable.group_icon_dark );
+                               colorShareBtn.setBackgroundResource( R.drawable.circle_div_white ) //R.style.deep_purple_button
+                               colorVolumeBtn.setBackgroundResource( R.drawable.circle_div_white)
+
+                   } else {
+                               this.currentTheme = Theme.DARK;
+                               AppCompatDelegate.setDefaultNightMode(   AppCompatDelegate.MODE_NIGHT_YES )
+
+                               groupIconView.setImageResource( R.drawable.group_icon );
+                               colorShareBtn.setBackgroundResource( R.drawable.circle_div ) //R.style.deep_purple_button
+                               colorVolumeBtn.setBackgroundResource( R.drawable.circle_div)
+                   }
+           }
+
 
 
 

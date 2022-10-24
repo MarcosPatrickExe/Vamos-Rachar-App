@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="@color/first_color"
             tools:context=".TelaPrincipal">
 
             <TextView
@@ -27,7 +27,7 @@
                 android:fontFamily="@font/berlin_sans_fb_demi"
                 android:text="@string/title"
                 android:textAlignment="center"
-                android:textColor="@color/deep_purple"
+                android:textColor="@color/second_color"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.511"
@@ -46,7 +46,7 @@
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/berlin_sans_fb_demi"
                 android:text="R$"
-                android:textColor="@color/deep_purple"
+                android:textColor="@color/second_color"
                 android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
@@ -68,7 +68,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="R$ 0,00"
-                android:textColor="@color/deep_purple"
+                android:textColor="@color/second_color"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.471"
@@ -88,7 +88,7 @@
                 android:textColorHint="@color/white"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.166"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
@@ -116,13 +116,17 @@
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/circle_div_white"
+                style="@style/deep_purple_button"
                 android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/valorTxt"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/share_icon" />
+                app:srcCompat="@drawable/share_icon"
+            />
+            <!--  android:background="@drawable/circle_div_white" -->
+
+
 
             <ImageView
                 android:id="@+id/volumeIcon"
@@ -131,7 +135,7 @@
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="40dp"
-                android:background="@drawable/circle_div_white"
+                style="@style/deep_purple_button"
                 android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +143,10 @@
                 app:layout_constraintStart_toEndOf="@+id/shareIcon"
                 app:layout_constraintTop_toBottomOf="@+id/valorTxt"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/volume_icon" />
+                app:srcCompat="@drawable/volume_icon"
+            />
+            <!--  android:background="@drawable/circle_div_white" -->
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

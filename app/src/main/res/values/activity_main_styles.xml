@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+        <style name="purple_button">
+                  <item name="android:background"> @drawable/circle_div </item>
+        </style>
+
+        <style name="deep_purple_button">
+                   <item name="android:background"> @drawable/circle_div_white</item>
+        </style>
+
+    
+</resources>
