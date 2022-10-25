@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true"
@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/second_color"
         tools:context=".TelaPrincipal">
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_marginTop="28dp"
             android:fontFamily="@font/berlin_sans_fb_demi"
             android:text=" Vamos \nRachar!"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.486"
@@ -41,7 +41,7 @@
             android:layout_marginTop="64dp"
             android:fontFamily="@font/berlin_sans_fb_demi"
             android:text="R$"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="40sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
@@ -52,9 +52,11 @@
             android:layout_height="60dp"
             android:layout_marginStart="102dp"
             android:layout_marginTop="56dp"
+            style="@style/group_icon"
             app:layout_constraintStart_toEndOf="@+id/inputValor"
             app:layout_constraintTop_toBottomOf="@+id/titleTxt"
-            app:srcCompat="@drawable/group_icon" />
+             />
+        <!-- app:srcCompat="@drawable/group_icon" -->
 
         <TextView
             android:id="@+id/valorTxt"
@@ -64,7 +66,7 @@
             android:layout_marginTop="200dp"
             android:fontFamily="sans-serif-medium"
             android:text="R$ 0,00"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
@@ -80,7 +82,7 @@
             android:ems="10"
             android:hint="0.00"
             android:inputType="numberDecimal"
-            android:textColor="@android:color/white"
+            android:textColor="@color/first_color"
             android:textColorHint="@color/white"
             android:textSize="40sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -95,7 +97,7 @@
             android:ems="10"
             android:hint="0"
             android:inputType="number"
-            android:textColor="@android:color/white"
+            android:textColor="@color/first_color"
             android:textColorHint="@color/white"
             android:textSize="40sp"
             app:layout_constraintHorizontal_bias="0.486"
@@ -108,13 +110,14 @@
             android:layout_height="60dp"
             android:layout_marginStart="144dp"
             android:layout_marginBottom="40dp"
-            android:background="@drawable/circle_div"
+            style="@style/first_color_button"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputValor"
             app:layout_constraintVertical_bias="0.56"
             app:srcCompat="@drawable/share_icon" />
+        <!-- android:background="@drawable/circle_div" -->
 
         <ImageView
             android:id="@+id/volumeIcon"
@@ -123,7 +126,7 @@
             android:layout_marginStart="80dp"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="40dp"
-            android:background="@drawable/circle_div"
+            style="@style/first_color_button"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -132,6 +135,24 @@
             app:layout_constraintTop_toBottomOf="@+id/inputNumRachadores"
             app:layout_constraintVertical_bias="0.581"
             app:srcCompat="@drawable/volume_icon" />
+        <!-- android:background="@drawable/circle_div" -->
+
+
+        <ToggleButton
+            android:id="@+id/toggleThemeBtn"
+            android:layout_width="133dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="35dp"
+            android:background="@color/first_color"
+            android:checked="false"
+            android:textAllCaps="false"
+            android:textOff="Go to light theme"
+            android:textOn="Go to dark theme "
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -14,6 +14,5 @@
     <!-- FOR LIGHT THEME -->
              <color name="first_color"> #FFFFFF </color>
              <color name="second_color"> #370d55 </color>
-            <color name="third_color"> #370d55 </color>
 
 </resources>

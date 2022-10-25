@@ -49,13 +49,16 @@
 
         <ImageView
             android:id="@+id/iconGroup"
+            style="@style/group_icon"
             android:layout_width="66dp"
             android:layout_height="65dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="56dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:srcCompat="@drawable/group_icon" />
+        />
+        <!-- app:srcCompat="@drawable/group_icon" -->
+
 
         <TextView
             android:id="@+id/valorTxt"
@@ -88,6 +91,10 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
+
+        <!--  style="@style/purple_button"
+                android:background="@drawable/circle_div"
+        -->
         <EditText
             android:id="@+id/inputNumRachadores"
             android:layout_width="150dp"
@@ -101,16 +108,13 @@
             android:textColorHint="@color/first_color"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHorizontal_bias="0.247"
             app:layout_constraintStart_toEndOf="@+id/iconGroup"
             app:layout_constraintTop_toBottomOf="@+id/inputValor" />
 
-
-
-        <!--  style="@style/purple_button" -->
         <ImageView
             android:id="@+id/shareIcon"
-            android:background="@drawable/circle_div"
+            style="@style/first_color_button"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginStart="64dp"
@@ -125,10 +129,12 @@
 
 
 
-        <!--   style="@style/purple_button" -->
+        <!--   style="@style/purple_button"
+                android:background="@drawable/circle_div"
+         -->
         <ImageView
             android:id="@+id/volumeIcon"
-            android:background="@drawable/circle_div"
+            style="@style/first_color_button"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="29dp"

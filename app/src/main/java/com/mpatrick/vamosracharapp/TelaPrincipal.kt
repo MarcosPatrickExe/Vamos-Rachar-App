@@ -41,7 +41,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val shareIcon  = super.findViewById(R.id.shareIcon) as ImageView;
                     val btnToggleTheme = super.findViewById<ToggleButton>(R.id.toggleThemeBtn);
 
-                    AppCompatDelegate.MODE_NIGHT_YES;
+                 //  AppCompatDelegate.MODE_NIGHT_YES;
 
                     inputValorConta.addTextChangedListener {
                                   //Toast.makeText( this, "Campo alterado!!!", Toast.LENGTH_SHORT).show();
@@ -73,10 +73,8 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
                     btnToggleTheme.setOnClickListener{
-                                  var currentTheme :Theme =  if( btnToggleTheme.isChecked )  Theme.DARK else  Theme.LIGHT// OPERADOR TERNÁRIO DO KOTLIN
-
-                                  Toast.makeText(this, "testando tema atual: $currentTheme",  Toast.LENGTH_LONG).show();
-                                  this.changeTheme(  currentTheme );
+                                      val newTheme :Theme =  if( btnToggleTheme.isChecked )  Theme.LIGHT else Theme.DARK      // OPERADOR TERNÁRIO DO KOTLIN
+                                     this.changeTheme(  newTheme );
                     }
             }
 
@@ -97,28 +95,17 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
 
-           fun changeTheme(  theme :Theme ){
-                   var groupIconView  = super.findViewById<ImageView>(R.id.iconGroup);
-                   var colorShareBtn = super.findViewById<ImageView>(R.id.shareIcon);
-                   var colorVolumeBtn = super.findViewById<ImageView>(R.id.volumeIcon);
+           fun changeTheme(   newTheme :Theme ){
+                  this.currentTheme = newTheme;
 
+                   if(  newTheme == Theme.DARK )
+                           AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_NO)
+                   else
+                           AppCompatDelegate.setDefaultNightMode(   AppCompatDelegate.MODE_NIGHT_YES)
 
-                   if(  theme == Theme.LIGHT) {
-                               this.currentTheme = Theme.LIGHT;
-                                AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_NO )
-
-                               groupIconView.setImageResource( R.drawable.group_icon_dark );
-                               colorShareBtn.setBackgroundResource( R.drawable.circle_div_white ) //R.style.deep_purple_button
-                               colorVolumeBtn.setBackgroundResource( R.drawable.circle_div_white)
-
-                   } else {
-                               this.currentTheme = Theme.DARK;
-                               AppCompatDelegate.setDefaultNightMode(   AppCompatDelegate.MODE_NIGHT_YES )
-
-                               groupIconView.setImageResource( R.drawable.group_icon );
-                               colorShareBtn.setBackgroundResource( R.drawable.circle_div ) //R.style.deep_purple_button
-                               colorVolumeBtn.setBackgroundResource( R.drawable.circle_div)
-                   }
+               //     super.findViewById<ImageView>(R.id.iconGroup).setImageResource( R.drawable.group_icon)
+               //    super.findViewById<ImageView>(R.id.volumeIcon).setBackgroundResource( R.drawable.circle_div)  //R.style.deep_purple_button (NAO FUNCIONA)
+               //    super.findViewById<ImageView>(R.id.shareIcon).setBackgroundResource( R.drawable.circle_div)
            }
 
 
@@ -128,7 +115,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                         if( valorConta.text.toString().equals("0.00") || valorConta.text.toString().equals("") || nRachadores.text.toString().equals("0") || nRachadores.text.toString().equals("") ) {
 
-                                        Toast.makeText(this,"Nenhum campo pode ficar vazio ou ter valor zero!!", Toast.LENGTH_SHORT).show();
+                     //                   Toast.makeText(this,"Nenhum campo pode ficar vazio ou ter valor zero!!", Toast.LENGTH_SHORT).show();
                                         super .findViewById<TextView>(R.id.valorTxt) .text = "R$ 0.00";
 
                         }else if(  valorConta.text.toString().toDouble() > 0 &&  nRachadores.text.toString().toDouble() > 0  ){
@@ -138,7 +125,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                                         super .findViewById<TextView>(R.id.valorTxt) .text = ("R$ "+String.format("%.2f", valorDividido) );
 
                         }else if(valorConta.text.toString().toDouble() == 0.00  || nRachadores.text.toString().toDouble() == 0.0){
-                                        Toast.makeText(this, "O valor da conta e o número de rachadores não podem ser zero!!", Toast.LENGTH_SHORT)
+        //                                Toast.makeText(this, "O valor da conta e o número de rachadores não podem ser zero!!", Toast.LENGTH_SHORT)
                                        super .findViewById<TextView>(R.id.valorTxt) .text = "R$ 0.00";
                         }
             }

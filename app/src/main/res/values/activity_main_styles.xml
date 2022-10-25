@@ -2,13 +2,16 @@
 
 <resources>
     
-        <style name="purple_button">
+        <style name="first_color_button">
                   <item name="android:background"> @drawable/circle_div </item>
         </style>
 
-        <style name="deep_purple_button">
+        <style name="second_color_button">
                    <item name="android:background"> @drawable/circle_div_white</item>
         </style>
 
-    
+        <style name="group_icon">
+                 <item name="android:src">@drawable/group_icon</item>
+         </style>
+
 </resources>

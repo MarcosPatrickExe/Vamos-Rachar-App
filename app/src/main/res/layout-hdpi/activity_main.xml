@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true"
@@ -22,14 +22,14 @@
             android:layout_width="544dp"
             android:layout_height="311dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="44dp"
             android:fontFamily="@font/berlin_sans_fb_demi"
             android:text="@string/title"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="120sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.345"
+            app:layout_constraintHorizontal_bias="0.398"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginTop="30dp" />
@@ -42,33 +42,38 @@
             android:layout_marginTop="68dp"
             android:fontFamily="@font/berlin_sans_fb_demi"
             android:text="R$"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="150sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
+
+        <!--  app:srcCompat="@drawable/group_icon" -->
+
+
         <ImageView
             android:id="@+id/iconGroup"
+            style="@style/group_icon"
             android:layout_width="197dp"
             android:layout_height="214dp"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="52dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:srcCompat="@drawable/group_icon" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
         <TextView
             android:id="@+id/valorTxt"
             android:layout_width="408dp"
             android:layout_height="161dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="68dp"
             android:fontFamily="sans-serif-medium"
             android:text="R$ 0,00"
-            android:textColor="@color/white"
+            android:textColor="@color/first_color"
             android:textSize="100sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.435"
+            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iconGroup" />
 
@@ -82,7 +87,7 @@
             android:ems="10"
             android:hint="0.00"
             android:inputType="numberDecimal"
-            android:textColor="@android:color/white"
+            android:textColor="@color/first_color"
             android:textColorHint="@color/white"
             android:textSize="110sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,50 +100,71 @@
             android:layout_width="299dp"
             android:layout_height="154dp"
             android:layout_marginStart="29dp"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="108dp"
             android:layout_marginEnd="50dp"
             android:ems="10"
             android:hint="0"
             android:inputType="number"
-            android:textColor="@android:color/white"
+            android:textColor="@color/first_color"
             android:textColorHint="@color/white"
             android:textSize="100sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintHorizontal_bias="0.301"
             app:layout_constraintStart_toEndOf="@+id/iconGroup"
             app:layout_constraintTop_toBottomOf="@+id/inputValor" />
 
+        <!-- android:background="@drawable/circle_div" -->
+
+
         <ImageView
             android:id="@+id/shareIcon"
+            style="@style/first_color_button"
             android:layout_width="176dp"
             android:layout_height="176dp"
-            android:layout_marginStart="156dp"
+            android:layout_marginStart="188dp"
             android:layout_marginBottom="70dp"
-            android:background="@drawable/circle_div"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valorTxt"
-            app:layout_constraintVertical_bias="0.409"
+            app:layout_constraintVertical_bias="0.217"
             app:srcCompat="@drawable/share_icon" />
+
+        <!-- android:background="@drawable/circle_div" -->
 
         <ImageView
             android:id="@+id/volumeIcon"
+            style="@style/first_color_button"
             android:layout_width="176dp"
             android:layout_height="176dp"
             android:layout_marginStart="80dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="40dp"
-            android:background="@drawable/circle_div"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.429"
+            app:layout_constraintHorizontal_bias="0.36"
             app:layout_constraintStart_toEndOf="@+id/shareIcon"
             app:layout_constraintTop_toBottomOf="@+id/valorTxt"
-            app:layout_constraintVertical_bias="0.277"
+            app:layout_constraintVertical_bias="0.126"
             app:srcCompat="@drawable/volume_icon" />
+
+        <ToggleButton
+            android:id="@+id/toggleThemeBtn"
+            android:layout_width="285dp"
+            android:layout_height="128dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginBottom="60dp"
+            android:background="@color/first_color"
+            android:checked="false"
+            android:textAllCaps="false"
+            android:textOff="Go to light theme"
+            android:textOn="Go to dark theme "
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
