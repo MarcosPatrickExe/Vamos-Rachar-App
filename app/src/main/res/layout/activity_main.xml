@@ -4,149 +4,168 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true"
     >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/second_color"
+        tools:context=".TelaPrincipal">
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="161dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/berlin_sans_fb_demi"
+            android:text="@string/title"
+            android:textAlignment="center"
+            android:textColor="@color/first_color"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.125"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="30dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="51dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/berlin_sans_fb_demi"
+            android:text="R$"
+            android:textColor="@color/first_color"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <ImageView
+            android:id="@+id/iconGroup"
+            style="@style/group_icon"
+            android:layout_width="53dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/valorTxt"
+            android:layout_width="108dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="R$ 0,00"
+            android:textColor="@color/first_color"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputNumRachadores" />
+
+        <EditText
+            android:id="@+id/inputValor"
+            android:layout_width="107dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="0.00"
+            android:inputType="numberDecimal"
+            android:textColor="@color/first_color"
+            android:textColorHint="@color/first_color"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
+
+        <EditText
+            android:id="@+id/inputNumRachadores"
+            android:layout_width="107dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="0"
+            android:inputType="number"
+            android:textColor="@color/first_color"
+            android:textColorHint="@color/first_color"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintStart_toEndOf="@+id/iconGroup"
+            app:layout_constraintTop_toBottomOf="@+id/inputValor" />
+
+        <ImageView
+            android:id="@+id/shareIcon"
+            style="@style/first_color_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="12dp"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valorTxt"
+            app:srcCompat="@drawable/share_icon" />
+
+        <ImageView
+            android:id="@+id/volumeIcon"
+            style="@style/first_color_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="60dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.626"
+            app:layout_constraintStart_toEndOf="@+id/shareIcon"
+            app:layout_constraintTop_toBottomOf="@+id/valorTxt"
+            app:srcCompat="@drawable/volume_icon" />
+
+        <ToggleButton
+            android:id="@+id/toggleThemeBtn"
+            android:layout_width="104dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginBottom="32dp"
             android:background="@color/first_color"
-            tools:context=".TelaPrincipal">
+            android:checked="false"
+            android:textAllCaps="false"
+            android:textColor="@color/second_color"
+            android:textOff="@string/text_theme_button"
+            android:textOn="@string/text_theme_button2"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shareIcon"
+            app:layout_constraintVertical_bias="0.071" />
 
-            <TextView
-                android:id="@+id/titleTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/berlin_sans_fb_demi"
-                android:text="@string/title"
-                android:textAlignment="center"
-                android:textColor="@color/second_color"
-                android:textSize="40sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.511"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_goneMarginTop="30dp" />
-
-            <!--   android:background="@color/deep_purple" -->
-
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/berlin_sans_fb_demi"
-                android:text="R$"
-                android:textColor="@color/second_color"
-                android:textSize="40sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
-
-            <ImageView
-                android:id="@+id/iconGroup"
-                android:layout_width="81dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:srcCompat="@drawable/group_icon_dark" />
-
-            <TextView
-                android:id="@+id/valorTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="R$ 0,00"
-                android:textColor="@color/second_color"
-                android:textSize="40sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.471"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputNumRachadores" />
-
-            <EditText
-                android:id="@+id/inputValor"
-                android:layout_width="150dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:hint="0.00"
-                android:inputType="numberDecimal"
-                android:textColor="@color/deep_purple"
-                android:textColorHint="@color/white"
-                android:textSize="40sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
-
-            <EditText
-                android:id="@+id/inputNumRachadores"
-                android:layout_width="165dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="0"
-                android:inputType="number"
-                android:textColor="@color/deep_purple"
-                android:textColorHint="@color/white"
-                android:textSize="40sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.146"
-                app:layout_constraintStart_toEndOf="@+id/iconGroup"
-                app:layout_constraintTop_toBottomOf="@+id/inputValor" />
-
-            <ImageView
-                android:id="@+id/shareIcon"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="40dp"
-                style="@style/second_color_button"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/valorTxt"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/share_icon"
-            />
-            <!--  android:background="@drawable/circle_div_white" -->
+        <Button
+            android:id="@+id/changeLanguageBtn"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/first_color"
+            android:text="@string/text_change_language"
+            android:textAllCaps="false"
+            android:textColor="@color/second_color"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/toggleThemeBtn"
+            app:layout_constraintTop_toBottomOf="@+id/volumeIcon"
+            app:layout_constraintVertical_bias="0.0" />
 
 
-
-            <ImageView
-                android:id="@+id/volumeIcon"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="40dp"
-                style="@style/second_color_button"
-                android:padding="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.368"
-                app:layout_constraintStart_toEndOf="@+id/shareIcon"
-                app:layout_constraintTop_toBottomOf="@+id/valorTxt"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/volume_icon"
-            />
-            <!--  android:background="@drawable/circle_div_white" -->
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

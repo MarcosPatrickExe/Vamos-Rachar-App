@@ -126,7 +126,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
             private fun falar( valor: String){
-                                Log.d("out", "Falando o texto recebido: ${valor}");
+                                Log.d("out", "Falando o texto recebido: ${valor} com o idioma ${Locale.getDefault().toString()}");
                                 this.tts!!.speak( valor, TextToSpeech.QUEUE_FLUSH, null, null )
             }
 
@@ -135,7 +135,7 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onInit( status: Int){
 
                                 if( status !=  TextToSpeech.ERROR){
-                                        this.tts!!.language= Locale.ENGLISH;
+                                        this.tts!!.language= Locale.getDefault();
                                 }
             }
 
