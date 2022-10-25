@@ -1,14 +1,18 @@
 package com.mpatrick.vamosracharapp
+import android.content.DialogInterface
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.addTextChangedListener
 import java.util.*
@@ -40,6 +44,9 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
                     val volumeIcon  = super.findViewById(R.id.volumeIcon) as ImageView;
                     val shareIcon  = super.findViewById(R.id.shareIcon) as ImageView;
                     val btnToggleTheme = super.findViewById<ToggleButton>(R.id.toggleThemeBtn);
+                    val btnChangeLanguage = super.findViewById<Button>( R.id.changeLanguageBtn);
+
+
 
                  //  AppCompatDelegate.MODE_NIGHT_YES;
 
@@ -73,9 +80,48 @@ class TelaPrincipal : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
                     btnToggleTheme.setOnClickListener{
-                                      val newTheme :Theme =  if( btnToggleTheme.isChecked )  Theme.LIGHT else Theme.DARK      // OPERADOR TERNÁRIO DO KOTLIN
-                                     this.changeTheme(  newTheme );
+                                 val newTheme :Theme =  if( btnToggleTheme.isChecked )  Theme.LIGHT else Theme.DARK      // OPERADOR TERNÁRIO DO KOTLIN
+                                 this.changeTheme(  newTheme );
                     }
+
+                    btnChangeLanguage.setOnClickListener{
+                                var listOptions :Array<String> =  arrayOf("Português", "English", "Español");
+
+                                var messageDialog :AlertDialog.Builder  =  AlertDialog.Builder( this);
+                                messageDialog.setTitle("Selecione: ");
+
+                                messageDialog.setSingleChoiceItems(
+                                         listOptions, -1, DialogInterface.OnClickListener( ::dialogItems )// passing a function
+                               )
+
+                               var mDialog :AlertDialog  = messageDialog.create(); // build dialog
+                               mDialog.show(); // show dialog
+                    }
+
+
+            }
+
+
+           private fun dialogItems(  di :DialogInterface, index: Int){
+
+                        var loc :Locale = when( index ) {
+                                    0 -> Locale("pt")
+                                    1 -> Locale("en")
+                                    2 -> Locale("es")
+                                    else -> Locale("pt")
+                        }
+
+                        Locale.setDefault( loc );
+                        var config  = Configuration();
+                        config.setLocale( loc )
+
+                        super.getBaseContext().resources.updateConfiguration(
+                                          config,
+                                          super.getBaseContext().resources.displayMetrics
+                        )
+
+                        super.recreate();
+                        di.dismiss();
             }
 
 

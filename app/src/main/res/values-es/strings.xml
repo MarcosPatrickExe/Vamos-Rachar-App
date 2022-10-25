@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+            <string name="app_name">VamosARomperApp</string>
+            <string name="title">Vamos a \n romper!</string>
+            <string name="text_theme_button">Activar tema claro</string>
+            <string name="text_theme_button2">Activar tema oscuro</string>
+            <string name="text_change_language">Cambiar idioma</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+            <string name="app_name">LetsCrackApp</string>
+            <string name="title">Let\'s \n Crack!</string>
+            <string name="text_theme_button">Go to light \n mode</string>
+            <string name="text_theme_button2">Go to night \n mode</string>
+           <string name="text_change_language">Change language</string>
+</resources>

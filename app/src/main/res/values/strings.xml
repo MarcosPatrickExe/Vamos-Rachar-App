@@ -1,4 +1,7 @@
 <resources>
             <string name="app_name">VamosRacharApp</string>
             <string name="title">Vamos \n Rachar!</string>
+            <string name="text_theme_button">Ativar tema claro</string>
+            <string name="text_theme_button2">Ativar tema escuro</string>
+            <string name="text_change_language">Alterar linguagem</string>
 </resources>
