@@ -53,7 +53,7 @@
             android:layout_width="53dp"
             android:layout_height="62dp"
             android:layout_marginStart="68dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -61,7 +61,7 @@
             android:id="@+id/valorTxt"
             android:layout_width="108dp"
             android:layout_height="45dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-medium"
             android:text="R$ 0,00"
             android:textColor="@color/first_color"
@@ -74,8 +74,8 @@
             android:id="@+id/inputValor"
             android:layout_width="107dp"
             android:layout_height="61dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
             android:ems="10"
             android:hint="0.00"
             android:inputType="numberDecimal"
@@ -83,16 +83,14 @@
             android:textColorHint="@color/first_color"
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.062"
-            app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
         <EditText
             android:id="@+id/inputNumRachadores"
             android:layout_width="107dp"
             android:layout_height="58dp"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="36dp"
             android:ems="10"
             android:hint="0"
             android:inputType="number"
@@ -100,8 +98,6 @@
             android:textColorHint="@color/first_color"
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.032"
-            app:layout_constraintStart_toEndOf="@+id/iconGroup"
             app:layout_constraintTop_toBottomOf="@+id/inputValor" />
 
         <ImageView
@@ -110,7 +106,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="68dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/valorTxt"
@@ -121,11 +117,11 @@
             style="@style/first_color_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="60dp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.626"
+            app:layout_constraintHorizontal_bias="0.63"
             app:layout_constraintStart_toEndOf="@+id/shareIcon"
             app:layout_constraintTop_toBottomOf="@+id/valorTxt"
             app:srcCompat="@drawable/volume_icon" />
@@ -134,9 +130,8 @@
             android:id="@+id/toggleThemeBtn"
             android:layout_width="104dp"
             android:layout_height="47dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="43dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="19dp"
             android:background="@color/first_color"
             android:checked="false"
             android:textAllCaps="false"
@@ -147,24 +142,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shareIcon"
-            app:layout_constraintVertical_bias="0.071" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/changeLanguageBtn"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_marginStart="44dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="14dp"
             android:backgroundTint="@color/first_color"
             android:text="@string/text_change_language"
             android:textAllCaps="false"
             android:textColor="@color/second_color"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/toggleThemeBtn"
-            app:layout_constraintTop_toBottomOf="@+id/volumeIcon"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/toggleThemeBtn" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
